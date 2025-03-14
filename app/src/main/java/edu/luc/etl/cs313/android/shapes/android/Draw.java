@@ -30,7 +30,10 @@ public class Draw implements Visitor<Void> {
 
     @Override
     public Void onStrokeColor(final StrokeColor c) {
-
+        int oColor = paint.getColor();
+        paint.setColor(c.getColor());
+        c.getShape().accept(this);
+        paint.setColor(oColor);
         return null;
     }
 
