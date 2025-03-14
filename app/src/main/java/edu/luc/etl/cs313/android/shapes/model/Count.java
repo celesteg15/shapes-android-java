@@ -48,6 +48,6 @@ public class Count implements Visitor<Integer> {
 
     @Override
     public Integer onStrokeColor(final StrokeColor c) {
-        return -1;
+        return c.getShape().accept(this);
     }
 }
