@@ -38,7 +38,7 @@ public class Count implements Visitor<Integer> {
 
     @Override
     public Integer onFill(final Fill c) {
-        return -1;
+        return c.getShape().accept(this);
     }
 
     @Override
