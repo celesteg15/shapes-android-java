@@ -10,7 +10,7 @@ public class Count implements Visitor<Integer> {
 
     @Override
     public Integer onPolygon(final Polygon p) {
-        return -1;
+        return 1;
     }
 
     @Override
