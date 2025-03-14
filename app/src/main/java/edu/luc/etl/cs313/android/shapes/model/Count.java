@@ -15,7 +15,7 @@ public class Count implements Visitor<Integer> {
 
     @Override
     public Integer onCircle(final Circle c) {
-        return -1;
+        return 1;
     }
 
     @Override
