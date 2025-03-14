@@ -17,7 +17,7 @@ public class BoundingBox implements Visitor<Location> {
 
     @Override
     public Location onFill(final Fill f) {
-        return null;
+        return f.getShape().accept(this);
     }
 
     @Override
