@@ -45,8 +45,8 @@ public class BoundingBox implements Visitor<Location> {
 
     @Override
     public Location onLocation(final Location l) {
-
-        return null;
+        Location boundingBox = l.getShape().accept(this);
+        return new Location(l.getX() + boundingBox.getX(), l.getY() + boundingBox.getY(), boundingBox.getShape());
     }
 
     @Override
