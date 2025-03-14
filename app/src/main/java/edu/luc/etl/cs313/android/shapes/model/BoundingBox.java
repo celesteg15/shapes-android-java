@@ -35,7 +35,12 @@ public class BoundingBox implements Visitor<Location> {
             int y = boundingBox.getY();
             Rectangle rect = (Rectangle) boundingBox.getShape();
 
-        return null;
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x + rect.getWidth());
+            maxY = Math.max(maxY, y + rect.getHeight());
+        }
+        return new Location(minX, minY, new Rectangle(maxX - minX, maxY - minY));
     }
 
     @Override
