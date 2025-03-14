@@ -55,7 +55,10 @@ public class Draw implements Visitor<Void> {
 
     @Override
     public Void onLocation(final Location l) {
-
+        canvas.save();
+        canvas.translate(l.getX(), l.getY());
+        l.getShape().accept(this);
+        canvas.restore();
         return null;
     }
 
