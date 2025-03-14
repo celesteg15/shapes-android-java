@@ -20,7 +20,10 @@ public class Count implements Visitor<Integer> {
 
     @Override
     public Integer onGroup(final Group g) {
-        return -1;
+        int count = 0;
+        for (Shape shape : g.getShapes())
+            count += shape.accept(this);
+        return count;
     }
 
     @Override
