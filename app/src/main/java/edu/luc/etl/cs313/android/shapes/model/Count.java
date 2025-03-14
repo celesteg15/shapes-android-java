@@ -28,7 +28,7 @@ public class Count implements Visitor<Integer> {
 
     @Override
     public Integer onRectangle(final Rectangle q) {
-        return -1;
+        return 1;
     }
 
     @Override
