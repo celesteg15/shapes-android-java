@@ -20,7 +20,9 @@ public class DrawWidget extends View {
         super(context, attrs);
     }
 
-    public DrawWidget(final Context context) { super(context); }
+    public DrawWidget(final Context context) { 
+        super(context); 
+    }
 
     @Override
     protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
@@ -36,7 +38,9 @@ public class DrawWidget extends View {
     protected void onDraw(final Canvas canvas) {
         final var shape = Fixtures.complexGroup;
         final var b = shape.accept(new BoundingBox());
+
         canvas.translate(-b.getX(), -b.getY());
+        
         b.accept(new Draw(canvas, paint));
         shape.accept(new Draw(canvas, paint));
         canvas.translate(b.getX(), b.getY());
