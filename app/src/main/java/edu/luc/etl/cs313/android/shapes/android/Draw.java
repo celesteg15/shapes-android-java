@@ -48,8 +48,19 @@ public class Draw implements Visitor<Void> {
 
     @Override
     public Void onGroup(final Group g) {
-        for (Shape shape : g.getShapes())
-            shape.accept(this);
+        for (Shape shape : g.getShapes()){
+            if (shape instanceof Location){
+                Location l = (Location) shape;
+                canvas.save();
+                canvas.translate(l.getX(), l.getY());
+                l.getShape().accept(this);
+                canvas.restore();
+
+            }else{
+                shape.accept(this);
+            }
+        }
+
         return null;
     }
 
